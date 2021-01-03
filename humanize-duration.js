@@ -1185,7 +1185,6 @@
           );
         } else {
           unitCount = (ms / unitMS).toFixed(0);
-          unitCount
         }
       } else {
         unitCount = Math.floor(ms / unitMS).toFixed(0);
