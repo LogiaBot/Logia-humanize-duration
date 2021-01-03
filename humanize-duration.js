@@ -1187,7 +1187,7 @@
           unitCount = (ms / unitMS).toFixed(0);
         }
       } else {
-        unitCount = Math.floor(ms / unitMS).toFixed(0);
+        unitCount = Math.floor(ms / unitMS);
       }
 
       // Add the string.
