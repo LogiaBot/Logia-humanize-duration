@@ -40,7 +40,7 @@ By default, Humanize Duration will humanize down to the second, and will return 
 
 ```js
 humanizeDuration(3000); // '3 seconds'
-humanizeDuration(2250); // '2.25 seconds'
+humanizeDuration(2250); // '2 seconds'
 humanizeDuration(97320000); // '1 day, 3 hours, 2 minutes'
 ```
 
@@ -153,7 +153,7 @@ humanizeDuration(8000, { maxDecimalPoints: 6 }); // 8 seconds
 Customize the value used to calculate each unit of time.
 
 ```js
-humanizeDuration(400); // '0.4 seconds'
+humanizeDuration(400); // '0 seconds'
 humanizeDuration(400, {
   unitMeasures: {
     y: 365,
