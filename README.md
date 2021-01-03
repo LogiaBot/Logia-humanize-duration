@@ -6,6 +6,8 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
 
 **This library is actively maintained but no new features will be added.**
 
+### THIS VERSION IS A FORK MODULE OF HUMANIZE-DURATION WITH CUSTOM FEATURE
+
 ## Installation
 
 This package is available as _humanize-duration_ on [npm](https://www.npmjs.com/package/humanize-duration) and Bower. You can also include the JavaScript file in the browser.
