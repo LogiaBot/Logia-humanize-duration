@@ -31,8 +31,8 @@
     },
     ms: function (c) {
       return c === 1
-        ? "χιλιοστό του δευτερολέπτου"
-        : "χιλιοστά του δευτερολέπτου";
+          ? "χιλιοστό του δευτερολέπτου"
+          : "χιλιοστά του δευτερολέπτου";
     },
     decimal: ",",
   };
@@ -140,13 +140,13 @@
       },
       s: function (c) {
         return ["sekunda", "sekundy", "sekundy", "sekund"][
-          getCzechOrSlovakForm(c)
-        ];
+            getCzechOrSlovakForm(c)
+            ];
       },
       ms: function (c) {
         return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][
-          getCzechOrSlovakForm(c)
-        ];
+            getCzechOrSlovakForm(c)
+            ];
       },
       decimal: ",",
     },
@@ -437,16 +437,16 @@
       },
       s: function (c) {
         if (
-          c === 10 ||
-          c === 11 ||
-          c === 12 ||
-          c === 13 ||
-          c === 14 ||
-          c === 16 ||
-          c === 17 ||
-          c === 18 ||
-          c === 19 ||
-          c % 10 === 5
+            c === 10 ||
+            c === 11 ||
+            c === 12 ||
+            c === 13 ||
+            c === 14 ||
+            c === 16 ||
+            c === 17 ||
+            c === 18 ||
+            c === 19 ||
+            c % 10 === 5
         ) {
           return "sekundi";
         } else if (c % 10 === 1) {
@@ -593,8 +593,8 @@
     lt: {
       y: function (c) {
         return c % 10 === 0 || (c % 100 >= 10 && c % 100 <= 20)
-          ? "metų"
-          : "metai";
+            ? "metų"
+            : "metai";
       },
       mo: function (c) {
         return ["mėnuo", "mėnesiai", "mėnesių"][getLithuanianForm(c)];
@@ -616,8 +616,8 @@
       },
       ms: function (c) {
         return ["milisekundė", "milisekundės", "milisekundžių"][
-          getLithuanianForm(c)
-        ];
+            getLithuanianForm(c)
+            ];
       },
       decimal: ",",
     },
@@ -713,8 +713,8 @@
       },
       mo: function (c) {
         return ["miesiąc", "miesiąca", "miesiące", "miesięcy"][
-          getPolishForm(c)
-        ];
+            getPolishForm(c)
+            ];
       },
       w: function (c) {
         return ["tydzień", "tygodnia", "tygodnie", "tygodni"][getPolishForm(c)];
@@ -733,8 +733,8 @@
       },
       ms: function (c) {
         return ["milisekunda", "milisekundy", "milisekundy", "milisekund"][
-          getPolishForm(c)
-        ];
+            getPolishForm(c)
+            ];
       },
       decimal: ",",
     },
@@ -816,8 +816,8 @@
       },
       ms: function (c) {
         return ["миллисекунд", "миллисекунда", "миллисекунды"][
-          getSlavicForm(c)
-        ];
+            getSlavicForm(c)
+            ];
       },
       decimal: ",",
     },
@@ -871,13 +871,13 @@
       },
       mo: function (c) {
         return ["mesiac", "mesiace", "mesiace", "mesiacov"][
-          getCzechOrSlovakForm(c)
-        ];
+            getCzechOrSlovakForm(c)
+            ];
       },
       w: function (c) {
         return ["týždeň", "týždne", "týždne", "týždňov"][
-          getCzechOrSlovakForm(c)
-        ];
+            getCzechOrSlovakForm(c)
+            ];
       },
       d: function (c) {
         return ["deň", "dni", "dni", "dní"][getCzechOrSlovakForm(c)];
@@ -890,13 +890,13 @@
       },
       s: function (c) {
         return ["sekunda", "sekundy", "sekundy", "sekúnd"][
-          getCzechOrSlovakForm(c)
-        ];
+            getCzechOrSlovakForm(c)
+            ];
       },
       ms: function (c) {
         return ["milisekunda", "milisekundy", "milisekundy", "milisekúnd"][
-          getCzechOrSlovakForm(c)
-        ];
+            getCzechOrSlovakForm(c)
+            ];
       },
       decimal: ",",
     },
@@ -907,9 +907,9 @@
         } else if (c % 100 === 2) {
           return "leti";
         } else if (
-          c % 100 === 3 ||
-          c % 100 === 4 ||
-          (Math.floor(c) !== c && c % 100 <= 5)
+            c % 100 === 3 ||
+            c % 100 === 4 ||
+            (Math.floor(c) !== c && c % 100 <= 5)
         ) {
           return "leta";
         } else {
@@ -960,9 +960,9 @@
         } else if (c % 10 === 2) {
           return "minuti";
         } else if (
-          c % 10 === 3 ||
-          c % 10 === 4 ||
-          (Math.floor(c) !== c && c % 100 <= 4)
+            c % 10 === 3 ||
+            c % 10 === 4 ||
+            (Math.floor(c) !== c && c % 100 <= 4)
         ) {
           return "minute";
         } else {
@@ -1103,28 +1103,28 @@
     };
 
     return extend(
-      result,
-      {
-        language: "en",
-        delimiter: ", ",
-        spacer: " ",
-        conjunction: "",
-        serialComma: true,
-        units: ["y", "mo", "w", "d", "h", "m", "s"],
-        languages: {},
-        round: false,
-        unitMeasures: {
-          y: 31557600000,
-          mo: 2629800000,
-          w: 604800000,
-          d: 86400000,
-          h: 3600000,
-          m: 60000,
-          s: 1000,
-          ms: 1,
+        result,
+        {
+          language: "en",
+          delimiter: ", ",
+          spacer: " ",
+          conjunction: "",
+          serialComma: true,
+          units: ["y", "mo", "w", "d", "h", "m", "s"],
+          languages: {},
+          round: false,
+          unitMeasures: {
+            y: 31557600000,
+            mo: 2629800000,
+            w: 604800000,
+            d: 86400000,
+            h: 3600000,
+            m: 60000,
+            s: 1000,
+            ms: 1,
+          },
         },
-      },
-      passedOptions
+        passedOptions
     );
   }
 
@@ -1179,15 +1179,16 @@
           var expValue = Math.pow(10, options.maxDecimalPoints);
           var unitCountFloat = ms / unitMS;
           unitCount = parseFloat(
-            (Math.floor(expValue * unitCountFloat) / expValue).toFixed(
-              options.maxDecimalPoints
-            )
+              (Math.floor(expValue * unitCountFloat) / expValue).toFixed(
+                  options.maxDecimalPoints
+              )
           );
         } else {
-          unitCount = ms / unitMS;
+          unitCount = (ms / unitMS).toFixed(0);
+          unitCount
         }
       } else {
-        unitCount = Math.floor(ms / unitMS);
+        unitCount = Math.floor(ms / unitMS).toFixed(0);
       }
 
       // Add the string.
@@ -1221,11 +1222,11 @@
         previousPiece = pieces[i - 1];
 
         ratioToLargerUnit =
-          options.unitMeasures[previousPiece.unitName] /
-          options.unitMeasures[piece.unitName];
+            options.unitMeasures[previousPiece.unitName] /
+            options.unitMeasures[piece.unitName];
         if (
-          piece.unitCount % ratioToLargerUnit === 0 ||
-          (options.largest && options.largest - 1 < i - firstOccupiedUnitIndex)
+            piece.unitCount % ratioToLargerUnit === 0 ||
+            (options.largest && options.largest - 1 < i - firstOccupiedUnitIndex)
         ) {
           previousPiece.unitCount += piece.unitCount / ratioToLargerUnit;
           piece.unitCount = 0;
@@ -1238,7 +1239,7 @@
       piece = pieces[i];
       if (piece.unitCount) {
         result.push(
-          render(piece.unitCount, piece.unitName, dictionary, options)
+            render(piece.unitCount, piece.unitName, dictionary, options)
         );
       }
 
@@ -1254,18 +1255,18 @@
         return result.join(options.conjunction);
       } else if (result.length > 2) {
         return (
-          result.slice(0, -1).join(options.delimiter) +
-          (options.serialComma ? "," : "") +
-          options.conjunction +
-          result.slice(-1)
+            result.slice(0, -1).join(options.delimiter) +
+            (options.serialComma ? "," : "") +
+            options.conjunction +
+            result.slice(-1)
         );
       }
     } else {
       return render(
-        0,
-        options.units[options.units.length - 1],
-        dictionary,
-        options
+          0,
+          options.units[options.units.length - 1],
+          dictionary,
+          options
       );
     }
   }
@@ -1280,7 +1281,7 @@
       decimal = ".";
     }
 
-    var countStr = count.toFixed(0).toString();
+    var countStr = count.toString().replace(".", decimal);
     var dictionaryValue = dictionary[type];
     var word;
     if (typeof dictionaryValue === "function") {
@@ -1323,9 +1324,9 @@
     if (Math.floor(c) !== c) {
       return 2;
     } else if (
-      (c % 100 >= 5 && c % 100 <= 20) ||
-      (c % 10 >= 5 && c % 10 <= 9) ||
-      c % 10 === 0
+        (c % 100 >= 5 && c % 100 <= 20) ||
+        (c % 10 >= 5 && c % 10 <= 9) ||
+        c % 10 === 0
     ) {
       return 0;
     } else if (c % 10 === 1) {
@@ -1355,9 +1356,9 @@
     if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
       return 0;
     } else if (
-      Math.floor(c) !== c ||
-      (c % 10 >= 2 && c % 100 > 20) ||
-      (c % 10 >= 2 && c % 100 < 10)
+        Math.floor(c) !== c ||
+        (c % 10 >= 2 && c % 100 > 20) ||
+        (c % 10 >= 2 && c % 100 < 10)
     ) {
       return 1;
     } else {
@@ -1373,10 +1374,10 @@
   // We need to make sure we support browsers that don't have
   // `Array.isArray`, so we define a fallback here.
   var isArray =
-    Array.isArray ||
-    function (arg) {
-      return Object.prototype.toString.call(arg) === "[object Array]";
-    };
+      Array.isArray ||
+      function (arg) {
+        return Object.prototype.toString.call(arg) === "[object Array]";
+      };
 
   function has(obj, key) {
     return Object.prototype.hasOwnProperty.call(obj, key);

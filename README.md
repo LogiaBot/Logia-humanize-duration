@@ -7,6 +7,8 @@ I have the time in milliseconds and I want it to become "30 minutes" or "3 days,
 **This library is actively maintained but no new features will be added.**
 
 ### THIS VERSION IS A FORK MODULE OF HUMANIZE-DURATION WITH CUSTOM FEATURE
+#### Feature updated
+- By default no decimal number
 
 ## Installation
 
@@ -141,7 +143,7 @@ humanizeDuration(22141000, { conjunction: " and ", serialComma: false }); // '6 
 Number that defines a maximal decimal points for float values.
 
 ```js
-humanizeDuration(8123.456789); // 8.12 seconds
+humanizeDuration(8123.456789); // 8 seconds
 humanizeDuration(8123.456789, { maxDecimalPoints: 3 }); // 8.123 seconds
 humanizeDuration(8123.456789, { maxDecimalPoints: 6 }); // 8.123456 seconds
 humanizeDuration(8123.45, { maxDecimalPoints: 6 }); // 8.12345 seconds
@@ -186,7 +188,7 @@ const spanishHumanizer = humanizeDuration.humanizer({
 });
 
 spanishHumanizer(71177400000); // '2 años, 3 meses, 2 días'
-spanishHumanizer(71177400000, { units: ["d", "h"] }); // '823 días, 19.5 horas'
+spanishHumanizer(71177400000, { units: ["d", "h"] }); // '823 días, 19 horas'
 ```
 
 You can also add new languages to humanizers. For example:
