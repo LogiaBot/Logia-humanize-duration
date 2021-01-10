@@ -7,7 +7,7 @@
   // `gr` and `el` for backwards-compatiblity. In a breaking change, we can
   // remove `gr` entirely.
   // See https://github.com/EvanHahn/HumanizeDuration.js/issues/143 for more.
-  var greek = {
+  const greek = {
     y: function (c) {
       return c === 1 ? "χρόνος" : "χρόνια";
     },
@@ -37,7 +37,7 @@
     decimal: ",",
   };
 
-  var LANGUAGES = {
+  const LANGUAGES = {
     ar: {
       y: function (c) {
         return c === 1 ? "سنة" : "سنوات";
@@ -429,7 +429,7 @@
         return "sati";
       },
       m: function (c) {
-        var mod10 = c % 10;
+        const mod10 = c % 10;
         if ((mod10 === 2 || mod10 === 3 || mod10 === 4) && (c < 10 || c > 14)) {
           return "minute";
         }
@@ -1097,8 +1097,8 @@
   // You can create a humanizer, which returns a function with default
   // parameters.
   function humanizer(passedOptions) {
-    var result = function humanizer(ms, humanizerOptions) {
-      var options = extend({}, result, humanizerOptions || {});
+    const result = function humanizer(ms, humanizerOptions) {
+      const options = extend({}, result, humanizerOptions || {});
       return doHumanization(ms, options);
     };
 
@@ -1129,11 +1129,11 @@
   }
 
   // The main function is just a wrapper around a default humanizer.
-  var humanizeDuration = humanizer({});
+  const humanizeDuration = humanizer({});
 
   // Build dictionary from options
   function getDictionary(options) {
-    var languagesFromOptions = [options.language];
+    let languagesFromOptions = [options.language];
 
     if (has(options, "fallbacks")) {
       if (isArray(options.fallbacks) && options.fallbacks.length) {
@@ -1143,8 +1143,8 @@
       }
     }
 
-    for (var i = 0; i < languagesFromOptions.length; i++) {
-      var languageToTry = languagesFromOptions[i];
+    for (let i = 0; i < languagesFromOptions.length; i++) {
+      const languageToTry = languagesFromOptions[i];
       if (has(options.languages, languageToTry)) {
         return options.languages[languageToTry];
       } else if (has(LANGUAGES, languageToTry)) {
@@ -1157,17 +1157,17 @@
 
   // doHumanization does the bulk of the work.
   function doHumanization(ms, options) {
-    var i, len, piece;
+    let i, len, piece;
 
     // Make sure we have a positive number.
     // Has the nice sideffect of turning Number objects into primitives.
     ms = Math.abs(ms);
 
-    var dictionary = getDictionary(options);
-    var pieces = [];
+    const dictionary = getDictionary(options);
+    const pieces = [];
 
     // Start at the top and keep removing units, bit by bit.
-    var unitName, unitMS, unitCount;
+    let unitName, unitMS, unitCount;
     for (i = 0, len = options.units.length; i < len; i++) {
       unitName = options.units[i];
       unitMS = options.unitMeasures[unitName];
@@ -1176,8 +1176,8 @@
       if (i + 1 === len) {
         if (has(options, "maxDecimalPoints")) {
           // We need to use this expValue to avoid rounding functionality of toFixed call
-          var expValue = Math.pow(10, options.maxDecimalPoints);
-          var unitCountFloat = ms / unitMS;
+          const expValue = Math.pow(10, options.maxDecimalPoints);
+          const unitCountFloat = ms / unitMS;
           unitCount = parseFloat(
               (Math.floor(expValue * unitCountFloat) / expValue).toFixed(
                   options.maxDecimalPoints
@@ -1200,7 +1200,7 @@
       ms -= unitCount * unitMS;
     }
 
-    var firstOccupiedUnitIndex = 0;
+    let firstOccupiedUnitIndex = 0;
     for (i = 0; i < pieces.length; i++) {
       if (pieces[i].unitCount) {
         firstOccupiedUnitIndex = i;
@@ -1209,7 +1209,7 @@
     }
 
     if (options.round) {
-      var ratioToLargerUnit, previousPiece;
+      let ratioToLargerUnit, previousPiece;
       for (i = pieces.length - 1; i >= 0; i--) {
         piece = pieces[i];
         piece.unitCount = Math.round(piece.unitCount);
@@ -1233,7 +1233,7 @@
       }
     }
 
-    var result = [];
+    const result = [];
     for (i = 0, pieces.length; i < len; i++) {
       piece = pieces[i];
       if (piece.unitCount) {
@@ -1271,7 +1271,7 @@
   }
 
   function render(count, type, dictionary, options) {
-    var decimal;
+    let decimal;
     if (has(options, "decimal")) {
       decimal = options.decimal;
     } else if (has(dictionary, "decimal")) {
@@ -1280,9 +1280,9 @@
       decimal = ".";
     }
 
-    var countStr = count.toString().replace(".", decimal);
-    var dictionaryValue = dictionary[type];
-    var word;
+    const countStr = count.toString().replace(".", decimal);
+    const dictionaryValue = dictionary[type];
+    let word;
     if (typeof dictionaryValue === "function") {
       word = dictionaryValue(count);
     } else {
@@ -1293,10 +1293,10 @@
   }
 
   function extend(destination) {
-    var source;
-    for (var i = 1; i < arguments.length; i++) {
+    let source;
+    for (const i = 1; i < arguments.length; i++) {
       source = arguments[i];
-      for (var prop in source) {
+      for (const prop in source) {
         if (has(source, prop)) {
           destination[prop] = source[prop];
         }
@@ -1372,7 +1372,7 @@
 
   // We need to make sure we support browsers that don't have
   // `Array.isArray`, so we define a fallback here.
-  var isArray =
+  const isArray =
       Array.isArray ||
       function (arg) {
         return Object.prototype.toString.call(arg) === "[object Array]";
@@ -1383,8 +1383,8 @@
   }
 
   humanizeDuration.getSupportedLanguages = function getSupportedLanguages() {
-    var result = [];
-    for (var language in LANGUAGES) {
+    const result = [];
+    for (const language in LANGUAGES) {
       if (has(LANGUAGES, language) && language !== "gr") {
         result.push(language);
       }
