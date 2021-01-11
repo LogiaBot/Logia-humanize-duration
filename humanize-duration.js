@@ -1294,7 +1294,7 @@
 
   function extend(destination) {
     let source;
-    for (const i = 1; i < arguments.length; i++) {
+    for (let i = 1; i < arguments.length; i++) {
       source = arguments[i];
       for (const prop in source) {
         if (has(source, prop)) {
@@ -1303,71 +1303,6 @@
       }
     }
     return destination;
-  }
-
-  // Internal helper function for Polish language.
-  function getPolishForm(c) {
-    if (c === 1) {
-      return 0;
-    } else if (Math.floor(c) !== c) {
-      return 1;
-    } else if (c % 10 >= 2 && c % 10 <= 4 && !(c % 100 > 10 && c % 100 < 20)) {
-      return 2;
-    } else {
-      return 3;
-    }
-  }
-
-  // Internal helper function for Russian and Ukranian languages.
-  function getSlavicForm(c) {
-    if (Math.floor(c) !== c) {
-      return 2;
-    } else if (
-        (c % 100 >= 5 && c % 100 <= 20) ||
-        (c % 10 >= 5 && c % 10 <= 9) ||
-        c % 10 === 0
-    ) {
-      return 0;
-    } else if (c % 10 === 1) {
-      return 1;
-    } else if (c > 1) {
-      return 2;
-    } else {
-      return 0;
-    }
-  }
-
-  // Internal helper function for Slovak language.
-  function getCzechOrSlovakForm(c) {
-    if (c === 1) {
-      return 0;
-    } else if (Math.floor(c) !== c) {
-      return 1;
-    } else if (c % 10 >= 2 && c % 10 <= 4 && c % 100 < 10) {
-      return 2;
-    } else {
-      return 3;
-    }
-  }
-
-  // Internal helper function for Lithuanian language.
-  function getLithuanianForm(c) {
-    if (c === 1 || (c % 10 === 1 && c % 100 > 20)) {
-      return 0;
-    } else if (
-        Math.floor(c) !== c ||
-        (c % 10 >= 2 && c % 100 > 20) ||
-        (c % 10 >= 2 && c % 100 < 10)
-    ) {
-      return 1;
-    } else {
-      return 2;
-    }
-  }
-
-  // Internal helper function for Latvian language.
-  function getLatvianForm(c) {
-    return c % 10 === 1 && c % 100 !== 11;
   }
 
   // We need to make sure we support browsers that don't have
